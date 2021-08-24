@@ -1,0 +1,39 @@
+ * Tester class for RecursivePalindrome
+ * This code is available for public use. Please give credit where it is due.
+ *
+ * @Yahvin gali
+ * @2/26/2021
+ */
+ 
+import java.util.*;
+public class RecursivePalindromeTester
+{
+    public static void main(String [ ] args){
+        RecursivePalindrome tester = new RecursivePalindrome();
+        Scanner input = new Scanner(System.in);
+        
+        System.out.println("Begin? (Y/N): ");
+        String quit = input.next();
+        System.out.println();
+        while (quit.equalsIgnoreCase("Y")){
+            System.out.println("Please enter a word:");
+            String n = input.next();
+            System.out.println();
+            if (tester.isPal(n) == true){
+                System.out.println("The word is a palindrome");
+            }
+            else if (tester.isPal(n) == false){
+                System.out.println("The word is not a palindrome");
+            }
+            System.out.println();
+            System.out.println("Continue? (Y/N): ");
+            quit = input.next();
+            if(!(quit.equalsIgnoreCase("Y"))){
+                break;
+            }
+            System.out.println();
+        }
+        System.out.println();
+        System.out.println("Have a nice day!");
+    }
+}
