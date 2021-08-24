@@ -1,0 +1,58 @@
+ * A program that identies if a user inputed word is a palindrome via recursion
+ * This code is available for public use. Please give credit where it is due.
+ *
+ * @Yahvin gali
+ * @2/26/2021
+ */
+ 
+public class RecursivePalindrome
+{
+    public RecursivePalindrome()
+    {
+    }
+
+    public static String sorter(String str){
+        String sort = str.toLowerCase();
+        sort = sort.replaceAll(" ", "");   
+        for(int i = 0; i < sort.length(); i++)
+        {
+            if(Character.isLetter(sort.charAt(i)) == false)
+                sort = sort.replace(sort.substring(i, i+1), "");
+        }
+        return sort;
+    }
+    
+    public static boolean pal(String str, int start, int end){
+        str = sorter(str);
+        char s = str.charAt(0);
+        char e = str.charAt(str.length() - 1);
+        if (start == end){
+            return true;
+        }
+        if (str.length()%2 == 0){
+            if (start < end + 1){
+                return pal(str, start + 1, end - 1);
+            }
+            else{
+                return false;
+            }
+        } 
+        if (s != e){
+            return false;
+        }
+        if (start < end + 1){
+            return pal(str, start + 1, end - 1);
+        }
+        else{
+            return false;
+        }
+    }
+    
+    public static boolean isPal(String str){
+        int n = str.length();
+        if (n == 0){
+            return true;
+        }
+        return pal(str, 0, n-1);
+    }
+}
