@@ -13,23 +13,23 @@ public class RecursivePalindromeTester
         Scanner input = new Scanner(System.in);
         
         System.out.println("Begin? (Y/N): ");
-        String quit = input.next();
+        String quit = input.nextLine();
         System.out.println();
         while (quit.equalsIgnoreCase("Y")){
+            System.out.println("Continue? (Y/N): ");
+            quit = input.nextLine();
+            if(!(quit.equalsIgnoreCase("Y"))){
+                break;
+            }
+            System.out.println();
             System.out.println("Please enter a word:");
-            String n = input.next();
+            String n = input.nextLine();
             System.out.println();
             if (tester.isPal(n) == true){
                 System.out.println("The word is a palindrome");
             }
             else if (tester.isPal(n) == false){
                 System.out.println("The word is not a palindrome");
-            }
-            System.out.println();
-            System.out.println("Continue? (Y/N): ");
-            quit = input.next();
-            if(!(quit.equalsIgnoreCase("Y"))){
-                break;
             }
             System.out.println();
         }
